@@ -12,6 +12,6 @@
 
 ## 列表的实现
 
-1。 继承Item,实现抽象方法
-2。 Adapter继承SimpleRecyclerViewAdapter,其中的List数据传入第一步中实现的类
-3。 AreaCodeIndexDecoration中实现画list index view
+1. 继承Item,实现抽象方法
+2. Adapter继承SimpleRecyclerViewAdapter,其中的List数据传入第一步中实现的类
+3. AreaCodeIndexDecoration中实现画list index view
