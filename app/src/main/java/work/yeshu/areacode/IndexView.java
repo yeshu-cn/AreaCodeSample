@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * Created by yeshu on 2016/11/25.
- * index view
+ * index list view
  */
 
 public class IndexView extends View {
@@ -27,6 +27,7 @@ public class IndexView extends View {
     private int mTextSize;
     private int mTextColor;
     private int mLineSpace;
+    private Rect mRect;
 
     private int mTextHeight;
     private List<String> mIndexList = new ArrayList<>();
@@ -69,6 +70,7 @@ public class IndexView extends View {
         mTextPaint.setColor(mTextColor);
         mTextPaint.setTextSize(mTextSize);
         mTextPaint.setAntiAlias(true);
+        mRect = new Rect();
     }
 
     public void setIndexList(List<String> indexList) {
@@ -87,12 +89,11 @@ public class IndexView extends View {
             return;
         }
 
-        Rect rect = new Rect();
-        mTextPaint.getTextBounds(String.valueOf(mIndexList.get(0)), 0, 1, rect);
-        mTextHeight = rect.height();
+        mTextPaint.getTextBounds(String.valueOf(mIndexList.get(0)), 0, 1, mRect);
+        mTextHeight = mRect.height();
 
         int totalHeight = (mTextHeight + mLineSpace) * mIndexList.size() + getPaddingTop() + getPaddingBottom();
-        int totalWidth = rect.width() + getPaddingLeft() + getPaddingRight();
+        int totalWidth = mRect.width() + getPaddingLeft() + getPaddingRight();
 
         setMeasuredDimension(resolveSize(totalWidth, widthMeasureSpec), resolveSize(totalHeight, heightMeasureSpec));
     }
@@ -155,7 +156,7 @@ public class IndexView extends View {
         mListener = listener;
     }
 
-    interface OnSelectedListener {
+    public interface OnSelectedListener {
         void onSelected(String index);
     }
 }
