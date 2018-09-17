@@ -17,11 +17,11 @@ public abstract class Item<T> {
      * 这个item是否是index组中的第一个
      * @return true or false
      */
-    public abstract boolean isTop();
+    public abstract boolean isHead();
 
     /**
-     * 获取index字符串
+     * 获取groupName字符串
      * @return 返回字符串
      */
-    public abstract String getIndex();
+    public abstract String getGroupName();
 }

@@ -79,13 +79,13 @@ public class IndexView extends View {
         }
 
         mIndexList = indexList;
-        invalidate();
+        requestLayout();
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mIndexList.isEmpty()) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            setMeasuredDimension(resolveSize(0, widthMeasureSpec), resolveSize(0, heightMeasureSpec));
             return;
         }
 

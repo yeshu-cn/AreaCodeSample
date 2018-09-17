@@ -29,7 +29,7 @@ public class AreaCodeIndexDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         Item item = (Item) view.getTag();
-        if (item.isTop()) {
+        if (item.isHead()) {
             // if item is top of the group, need set offset
             outRect.set(0, mIndexViewHeight, 0, 0);
         }
@@ -61,11 +61,11 @@ public class AreaCodeIndexDecoration extends RecyclerView.ItemDecoration {
             secondViewIsTop = false;
         } else {
             View secondVisibleItemView = secondVisibleViewHolder.itemView;
-            secondViewIsTop = ((Item) secondVisibleItemView.getTag()).isTop();
+            secondViewIsTop = ((Item) secondVisibleItemView.getTag()).isHead();
         }
 
         //画顶部悬浮的group
-        drawFloatIndexView(c, firstVisibleView, firstItem.getIndex(), secondViewIsTop);
+        drawFloatIndexView(c, firstVisibleView, firstItem.getGroupName(), secondViewIsTop);
     }
 
     private void drawFloatIndexView(Canvas canvas, View itemView, String indexStr, boolean isTop) {
@@ -90,9 +90,9 @@ public class AreaCodeIndexDecoration extends RecyclerView.ItemDecoration {
         int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             Item item = (Item) parent.getChildAt(i).getTag();
-            if (item.isTop()) {
+            if (item.isHead()) {
                 // if item is top of the group, then draw group
-                drawNormalGroup(c, parent.getChildAt(i), item.getIndex());
+                drawNormalGroup(c, parent.getChildAt(i), item.getGroupName());
             }
         }
     }

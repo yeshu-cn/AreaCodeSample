@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private void selectedIndex(String index) {
         int position = -1;
         for (int i = 0; i < mCodeList.size(); i++) {
-            if (mCodeList.get(i).getIndex().equals(index)) {
+            if (mCodeList.get(i).getGroupName().equals(index)) {
                 position = i;
                 break;
             }

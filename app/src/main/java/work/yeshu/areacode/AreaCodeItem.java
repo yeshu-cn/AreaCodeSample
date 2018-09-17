@@ -14,12 +14,12 @@ public class AreaCodeItem extends Item<AreaCode>{
     }
 
     @Override
-    public boolean isTop() {
+    public boolean isHead() {
         return top;
     }
 
     @Override
-    public String getIndex() {
+    public String getGroupName() {
         return index;
     }
 }
